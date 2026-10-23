@@ -1,0 +1,16 @@
+{
+  "name": "Bioferia 2027",
+  "short_name": "Bioferia",
+  "description": "La app de Bioferia 2027: agenda, mapa, entradas y BioJuego.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0D0D12",
+  "theme_color": "#FF00B2",
+  "lang": "es",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
