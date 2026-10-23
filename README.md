@@ -9,6 +9,7 @@ Es un sitio estático: un `index.html` y la carpeta `img/`. No necesita servidor
 - Agenda por día con filtros, inscripción a talleres, cupos y lista de espera
 - Mapa ilustrado con lugares, filtros por color y recorrido simulado
 - Acciones ambientales
+- Mural “Lo que más me gustó”: subir una foto con etiqueta de lo que más gustó y un marco de Bioferia por elemento (prototipo local, con revisión simulada)
 - Entradas (compra simulada y QR de demostración)
 - Avisos, modo DEMO (reloj simulado, cupos, sin conexión) y acceso al BioJuego
 
