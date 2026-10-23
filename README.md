@@ -36,7 +36,7 @@ git push -u origin main
 ```
 
 ## Notas
-- `img/portada.mp4` pesa ~18 MB. Para que cargue más rápido con datos móviles conviene comprimirlo.
+- `img/portada-lite.mp4` (4,6 MB, 854×480, sin audio) es el video de portada; `img/portada-poster.jpg` es su primer cuadro y se muestra mientras carga.
 - Las fotos de `img/acciones/` son de Wikimedia Commons (CC0 / dominio público). Detalle en `img/acciones/CREDITOS.txt`.
 - El estado de la demo (nombre, inscripciones) se guarda solo en el navegador de cada persona.
 - El BioJuego es externo: https://catalisis-one.vercel.app/
