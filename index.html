@@ -239,11 +239,15 @@ input.err{border-color:var(--fuego)}
 .search input{border:0;outline:0;flex:1;font-size:18px;min-width:0}
 .zoom{position:absolute;right:14px;top:14px;display:flex;flex-direction:column;gap:10px}
 .zoom button{width:54px;height:54px;border-radius:50%;background:#fff;border:1.5px solid var(--ink);display:grid;place-items:center}
-.mcard{position:absolute;left:12px;right:12px;bottom:12px;background:#fff;border:2px solid var(--ink);border-radius:28px;padding:16px;z-index:6;max-height:58%;overflow:auto}
-.mcard .h{display:flex;gap:14px;align-items:center}
-.mcard .h .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;color:#000;flex:none}
-.mcard h4{margin:0;font-size:25px;letter-spacing:-1px}
-.mcard .x{margin-left:auto}
+@media(max-height:720px){.mtitle{display:none}}
+.mcard{position:absolute;left:10px;right:10px;bottom:10px;background:#fff;border:1.5px solid var(--line);box-shadow:0 10px 30px rgba(13,13,18,.25);border-radius:24px;padding:12px 14px;z-index:6}
+.mcard .h{display:flex;gap:12px;align-items:center}.mcard .h .ic{width:52px;height:52px;border-radius:14px;flex:none}
+.mcard .ht{flex:1;min-width:0}.mcard h4{margin:0;font-size:20px;letter-spacing:-.6px;line-height:1.1}.mcard .ht span{font-size:14px}
+.mcard .x{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--soft);flex:none}
+.mcard .rt{margin-top:10px;background:var(--agua-l);border-radius:16px;padding:10px 12px}.mcard .rl{display:flex;gap:8px;align-items:center}.mcard .rl b{font-size:19px;letter-spacing:-.4px}
+.mcard .rd{font-size:15px;margin:2px 0 0}.mcard .rs{font-size:12px;color:#3a3a45;margin:2px 0 0;line-height:1.25}
+.mcard .mact{margin-top:10px;padding:9px 12px;font-size:15px;border-radius:14px;gap:8px}.mcard .mact span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mcard .btn{margin-top:8px;padding:12px;font-size:17px}
 .routebox{background:var(--agua-l);border-radius:20px;padding:16px;margin-top:14px}
 .routebox b{font-size:24px;letter-spacing:-.6px}
 .routebox p{margin:6px 0 12px;font-size:17px;color:#2b2b33}
@@ -505,7 +509,7 @@ function routePts(a,b){const n=gpath(a.node,b.nd);return[[a.x,a.y],...n.map(k=>G
 function routeDist(a,b){const p=routePts(a,b);let d=0;for(let i=1;i<p.length;i++)d+=dist(p[i-1],p[i]);return Math.max(10,Math.round(d*SCALE/10)*10)}
 const refStart=id=>{const p=pl(id);return{n:p.n,x:p.x,y:p.y,node:p.nd}};
 function vMapa(){
- return`<div style="padding:20px 20px 0"><h1 style="font-size:34px;margin-bottom:14px">Encontrá tu lugar</h1>
+ return`<div style="padding:12px 20px 0"><h1 class="mtitle" style="font-size:28px;margin:0 0 10px">Encontrá tu lugar</h1>
  <div class="search"><svg class="i" viewBox="0 0 24 24" style="color:var(--mut)"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" placeholder="Expositor, actividad o sector" value="${esc(M.q)}"></div>
  <div class="chips">${MF.map(f=>`<button class="chip ${M.flt===f?'on':''}" data-a="mflt" data-v="${f}" style="${M.flt===f?`background:${FC[f]};border-color:${FC[f]};color:${fgOn(FC[f])}`:''}">${f}</button>`).join('')}</div></div>
  <div class="mapwrap" id="mw"><svg class="m" id="msvg"></svg>
@@ -531,10 +535,15 @@ function mapInit(){
  mw.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
   if(!drag.moved&&Math.abs(dx)+Math.abs(dy)>6){drag.moved=true;try{mw.setPointerCapture(drag.id)}catch(_){}}
   if(!drag.moved)return;const r=$('#msvg').getBoundingClientRect(),k=(MW/M.z)/r.width;M.cx=drag.cx-dx*k;M.cy=drag.cy-dy*k;vb()};
- mw.onpointerup=e=>{if(drag&&!drag.moved&&M.pick&&!e.target.closest('button,.mcard')){const r=$('#msvg').getBoundingClientRect(),w=MW/M.z,h=w*r.height/r.width;const px=M.cx-w/2+(e.clientX-r.left)/r.width*w,py=M.cy-h/2+(e.clientY-r.top)/r.height*h;M.start={n:'Punto marcado',x:px,y:py,node:nearNode(px,py)};M.pick=false;toast('Partida marcada','Tocá un lugar y “Ver recorrido”.');mapDraw()}drag=null};
+ mw.onpointerup=e=>{if(drag&&!drag.moved&&M.pick&&!e.target.closest('button,.mcard')){const r=$('#msvg').getBoundingClientRect(),w=MW/M.z,h=w*r.height/r.width;const px=M.cx-w/2+(e.clientX-r.left)/r.width*w,py=M.cy-h/2+(e.clientY-r.top)/r.height*h;M.start={n:'Punto marcado',x:px,y:py,node:nearNode(px,py)};M.pick=false;toast('Partida marcada','Tocá un lugar y “Ver recorrido”.');mapDraw()}else if(drag&&!drag.moved&&!M.pick&&M.sel&&!e.target.closest('button,.mcard,[data-pin]')){M.sel=null;M.route=false;mapDraw()}drag=null};
  mw.onpointercancel=()=>{drag=null};
 }
-function selPlace(id){const p=pl(id);M.sel=id;M.route=false;M.cx=p.x;M.cy=p.y+(MW/M.z)*0.3}
+function selPlace(id){const p=pl(id);M.sel=id;M.route=false;const s=$('#msvg'),r=s&&s.getBoundingClientRect(),ar=r&&r.width?r.height/r.width:1.1;M.cx=p.x;M.cy=p.y+0.2*(MW/M.z)*ar}
+function fitRoute(){const s=$('#msvg');if(!s||!M.sel||!M.start)return;const r=s.getBoundingClientRect();if(!r.width)return;
+ const pts=routePts(M.start,pl(M.sel));let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;pts.forEach(p=>{x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);y0=Math.min(y0,p[1]);y1=Math.max(y1,p[1])});
+ const card=document.querySelector('#mc .mcard'),ch=(card?card.offsetHeight:150)+26,f=Math.max(.25,(r.height-ch)/r.height),ar=r.height/r.width;
+ const bw=Math.max(140,x1-x0),bh=Math.max(140,y1-y0);
+ M.z=Math.min(4,Math.max(1,Math.min(.68*MW/bw,.82*f*MW*ar/bh)));const h=(MW/M.z)*ar;M.cx=(x0+x1)/2+.07*(MW/M.z);M.cy=(y0+y1)/2+(.5-f/2)*h}
 function vb(){const s=$('#msvg');if(!s)return;const r=s.getBoundingClientRect(),w=MW/M.z,h=w*r.height/r.width;M.cx=Math.min(MW,Math.max(0,M.cx));M.cy=Math.min(MH+h*.2,Math.max(-h*.2,M.cy));s.setAttribute('viewBox',`${M.cx-w/2} ${M.cy-h/2} ${w} ${h}`)}
 function mapDraw(){
  const s=$('#msvg');if(!s)return;
@@ -555,11 +564,11 @@ function mapCard(){
  const c=$('#mc');if(!c)return;
  if(!M.sel){c.innerHTML='';return}
  const p=pl(M.sel),n=now();
- const acts=ACT.map(a=>A(a.id)).filter(a=>a.pl===p.id&&a.en>n).sort((a,b)=>a.st-b.st).slice(0,2);
+ const act=ACT.map(a=>A(a.id)).filter(a=>a.pl===p.id&&a.en>n).sort((a,b)=>a.st-b.st)[0];
  let body;
- if(M.route&&M.start){const d=routeDist(M.start,p);body=`<div class="routebox"><div style="display:flex;gap:12px;align-items:center">${ic('walk',28)}<b>≈ ${d} m · ${Math.max(1,Math.round(d/70))} min caminando</b></div><p>Desde ${esc(M.start.n)}. Recorrido simulado: no verificado para accesibilidad.</p><div class="links"><a class="link" data-a="msheet">Cambiar partida</a><a class="link" data-a="mquit">Quitar recorrido</a></div></div>`}
- else body=`${acts.map(a=>`<button class="mact" data-a="act" data-v="${a.id}">${ic('cal',22)}${hm(a.st)} – ${hm(a.en)} · ${esc(a.t)}</button>`).join('')}<button class="btn" style="margin-top:14px;background:${p.c};color:${fgOn(p.c)}" data-a="mroute">${ic('route')}Ver recorrido</button>`;
- c.innerHTML=`<div class="mcard"><div class="h"><div class="ic" style="${cropCss(p,60)};border:3px solid ${p.c};width:72px;height:72px"></div><div><h4>${p.n}</h4><span class="mut">${p.k}</span></div><button class="x" data-a="mx">${ic('x',28)}</button></div>${body}</div>`;
+ if(M.route&&M.start){const d=routeDist(M.start,p);body=`<div class="rt"><div class="rl">${ic('walk',22)}<b>≈ ${d} m · ${Math.max(1,Math.round(d/70))} min a pie</b></div><div class="rd">Desde ${esc(M.start.n)} · <a class="link" data-a="msheet">Cambiar</a></div><div class="rs">Recorrido simulado, no verificado para accesibilidad</div></div>`}
+ else body=`${act?`<button class="mact" data-a="act" data-v="${act.id}">${ic('cal',18)}<span>${hm(act.st)} · ${esc(act.t)}</span></button>`:''}<button class="btn" style="background:${p.c};color:${fgOn(p.c)}" data-a="mroute">${ic('route',22)}Ver recorrido</button>`;
+ c.innerHTML=`<div class="mcard"><div class="h"><div class="ic" style="${cropCss(p,52)};border:3px solid ${p.c}"></div><div class="ht"><h4>${p.n}</h4><span class="mut">${p.k}</span></div><button class="x" data-a="mx" aria-label="Cerrar">${ic('x',22)}</button></div>${body}</div>`;
 }
 function mapSheet(){
  sheet('Elegí tu punto de partida',`<button class="btn out" data-a="mloc" style="margin-bottom:16px">${ic('loc')}Usar mi ubicación</button><p class="mut">O elegí un lugar de referencia del predio:</p>
@@ -811,11 +820,11 @@ const clickMap={
  z(e,el){M.z=Math.min(6,Math.max(1,M.z*(+el.dataset.v>0?1.4:1/1.4)));mapDraw()},
  zc(){Object.assign(M,Z0);mapDraw()},
  mx(){M.sel=null;M.route=false;mapDraw()},
- mroute(){if(!M.start)M.start=refStart('ing');M.route=true;mapDraw()},
+ mroute(){if(!M.start)M.start=refStart('ing');M.route=true;mapDraw();fitRoute();mapDraw()},
  mquit(){M.route=false;mapDraw()},
  msheet(){mapSheet()},
- mstart(e,el){M.start=refStart(el.dataset.v);M.route=true;closeSheet();mapDraw()},
- mloc(){M.start={n:'tu ubicación (simulada)',x:1600,y:905,node:'ing'};M.route=true;closeSheet();mapDraw();toast('Ubicación simulada','En el prototipo no se usa el GPS real.')},
+ mstart(e,el){M.start=refStart(el.dataset.v);M.route=true;closeSheet();mapDraw();fitRoute();mapDraw()},
+ mloc(){M.start={n:'tu ubicación (simulada)',x:1600,y:905,node:'ing'};M.route=true;closeSheet();mapDraw();fitRoute();mapDraw();toast('Ubicación simulada','En el prototipo no se usa el GPS real.')},
  mpick(){M.pick=true;closeSheet();toast('Marcá tu partida','Tocá un punto del mapa.')},
  /* acciones */
  accj(e,el){const i=el.dataset.v;S.acc[i]=!S.acc[i];save();render();if(S.acc[i])toast('¡Gracias por sumarte!',ACCIONES[i].t)},
