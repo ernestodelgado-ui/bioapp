@@ -275,6 +275,45 @@ input.err{border-color:var(--fuego)}
 .ph{height:150px;border-radius:18px;position:relative;overflow:hidden;margin-bottom:14px;background-size:cover;background-position:center}.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.9) contrast(.95) brightness(1.35)}.ph i{position:absolute;inset:0;background-size:cover;background-position:center;mix-blend-mode:multiply;opacity:.72}
 .act b{font-size:21px;letter-spacing:-.6px;display:block;line-height:1.15}
 .act p{margin:6px 0 10px;color:var(--mut);line-height:1.35}
+/* ---- Inicio: jerarquía en tres niveles ---- */
+.hero{min-height:340px}
+.hero .cta1{margin-top:6px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--corazon);color:#fff;border-radius:32px;padding:18px 16px;font-weight:900;font-size:21px;letter-spacing:-.4px;box-shadow:0 12px 26px rgba(255,0,178,.5)}
+.sec2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 0}
+.sec2 button{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:24px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:16px}
+.now{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;text-align:left;border:1.5px solid var(--line);border-left:6px solid var(--c);border-radius:20px;padding:12px 14px;margin-top:14px;background:#fff;position:relative}
+.now small{font-weight:800;letter-spacing:1.4px;font-size:12px;color:var(--mut)}
+.now b{font-size:19px;letter-spacing:-.5px;line-height:1.15;padding-right:26px}
+.now span{font-size:14px;color:var(--mut)}
+.now .tag{margin-top:6px}
+.now .chev{position:absolute;right:10px;top:50%;margin-top:-12px;color:var(--mut)}
+.eyebrow{font-size:13px;letter-spacing:1.8px;font-weight:800;color:var(--mut);margin:28px 0 10px}
+.elems.sm .elem{width:150px;height:150px;padding:13px;border-radius:22px}
+.elems.sm .elem span{font-size:15px}
+.elems.sm .elem b{font-size:21px;letter-spacing:-.9px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{border-radius:24px;min-height:210px;position:relative;overflow:hidden;text-align:left}
+.tm{display:flex;flex-direction:column;justify-content:flex-end;padding:14px;color:#fff;background:#FF00B2 url(img/acciones/selfie.jpg) 38% 28%/cover;isolation:isolate}
+.tm:before{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(255,0,178,.55) 0%,rgba(255,0,178,.25) 45%,rgba(70,0,52,.92) 100%)}
+.tm>*{position:relative;z-index:1}
+.tm b{font-size:21px;letter-spacing:-.8px;line-height:1.05}
+.tm span{font-size:13px;margin-top:4px;opacity:.95;line-height:1.25}
+.tm em{margin-top:10px;align-self:flex-start;font-style:normal;font-weight:800;font-size:14px;background:#fff;color:#0D0D12;padding:8px 14px;border-radius:20px}
+.tiles .game{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border-radius:24px;min-height:210px}
+.tiles .game .seed{width:78px;height:78px;margin:0 0 2px -2px}
+.tiles .game .seed svg{width:60px;height:54px}
+.tiles .game .gt{display:flex;flex-direction:column;gap:3px;width:100%;margin-top:auto}
+.tiles .game small{font-size:11px;letter-spacing:1.2px}
+.tiles .game h3{font-size:19px;letter-spacing:-.6px;margin:0 0 8px;line-height:1.08}
+.tiles .game .row2{display:flex;gap:8px;align-items:center}
+.tiles .game a.go{flex:1;padding:10px 8px;font-size:15px}
+.tiles .game .qrb{width:40px;height:40px}
+.slim{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 2px;border-top:1px solid var(--line);margin-top:18px}
+.slim .th2{width:48px;height:48px;border-radius:14px;background:url(img/hojas.webp) center/cover;flex:none}
+.slim b{display:block;font-size:17px;letter-spacing:-.3px}
+.slim span{font-size:14px;color:var(--mut)}
+.slim .chev{margin-left:auto;color:var(--mut)}
+.hero h1{font-size:40px;letter-spacing:-2px}
+@media(max-width:350px){.hero h1{font-size:34px}.hero .cta1{font-size:18px}.tiles{gap:10px}}
 </style>
 </head>
 <body>
@@ -444,17 +483,28 @@ function render(){const _oldV=document.querySelector('.hv');setTimeout(()=>{if(L
 }
 
 /* ---------- inicio ---------- */
+/* tarjeta "ahora": lo que pasa o viene a continuación (usa el reloj simulado) */
+function nowCard(){
+ const n=now(),all=ACT.map(a=>A(a.id));
+ const mine=all.filter(a=>S.en[a.id]&&!S.en[a.id].wl&&a.en>n).sort((a,b)=>a.st-b.st)[0];
+ const live=all.filter(a=>a.st<=n&&n<a.en).sort((a,b)=>a.st-b.st)[0];
+ const next=all.filter(a=>a.st>n).sort((a,b)=>a.st-b.st)[0];
+ const a=mine||live||next;if(!a)return'';
+ const lab=mine?'TU PRÓXIMA ACTIVIDAD':(live?'AHORA EN BIOFERIA':'PRÓXIMA ACTIVIDAD'),p=pl(a.pl);
+ return`<button class="now" data-a="act" data-v="${a.id}" style="--c:${p.c}"><small>${lab}</small><b>${esc(a.t)}</b><span>${DAYS[a.day].n} ${hm(a.st)} · ${p.n}</span>${tag(status(a))}<i class="chev">${ic('chev')}</i></button>`}
+
 function vHome(){return`
 <div class="hero"><video class="hv" src="img/portada-lite.mp4?v=2" poster="img/portada-poster.jpg?v=2" autoplay muted loop playsinline preload="auto"></video>
- ${S.name?`<small class="hi">¡Hola, ${esc(S.name)}!</small>`:''}<h1>El cambio<br>empieza con vos.</h1><p>9, 10 y 11 de abril · Hipódromo de Palermo</p></div>
-<div class="two"><button class="big dk" style="background:var(--aire)" data-a="tab" data-v="agenda">${ic('cal',28)}Ver agenda</button><button class="big" style="background:var(--corazon)" data-a="tab" data-v="ent">${ic('ticket',28)}Mi entrada</button></div>
-<button class="promo" data-a="tab" data-v="acc"><div class="img"></div><div class="t"><small>ACCIONES AMBIENTALES</small><b>Sumate a quienes cuidan el planeta</b><span class="link" style="text-decoration:none">Ver acciones →</span></div></button>
-<h2>Cinco formas de activar el cambio</h2>
-<div class="elems">${[['Fuego','Hacer','g-rojo.png',0,'fuego'],['Aire','Conectar','libelula.webp',0,'aire'],['Agua','Transformar','nautilo-poster.webp',0,'agua'],['Tierra','Cuidar','ramas-amarillo.png',0,'tierra'],['Corazón','Celebrar','g-amarillo.webp',1,'corazon']].map(e=>`<button class="elem" data-a="el" data-v="${e[4]}"><i class="bg${e[3]?' gs':''}" style="background-image:url(img/${e[2]})"></i>${e[3]?'<i class="tint"></i>':''}<span>${e[0]}</span><b>${e[1]}</b></button>`).join('')}</div>
-<h2>Lo que más me gustó</h2>
-<button class="mural-card" data-a="mural"><b>El mural de Bioferia</b><span>Subí una foto de lo que más te gustó y sumate al gran cuadro.</span><em>Ver el mural y sumar mi foto</em></button>
-<h2>Jugá con nuestra aplicación</h2>
-<div class="game"><div class="seed"><svg width="78" height="70" viewBox="0 0 84 76" aria-hidden="true"><defs>
+ ${S.name?`<small class="hi">¡Hola, ${esc(S.name)}!</small>`:''}<h1>El cambio<br>empieza con vos.</h1><p>9, 10 y 11 de abril · Hipódromo de Palermo</p>
+ <button class="cta1" data-a="tab" data-v="agenda">${ic('cal',26)}Armá tu recorrido${ic('chev',22)}</button></div>
+<div class="sec2"><button data-a="tab" data-v="ent">${ic('ticket',20)}Mi entrada</button><button data-a="tab" data-v="mapa">${ic('pin',20)}Ver mapa</button></div>
+${nowCard()}
+<div class="eyebrow">EXPLORÁ BIOFERIA</div>
+<div class="elems sm">${[['Fuego','Hacer','g-rojo.png',0,'fuego'],['Aire','Conectar','libelula.webp',0,'aire'],['Agua','Transformar','nautilo-poster.webp',0,'agua'],['Tierra','Cuidar','ramas-amarillo.png',0,'tierra'],['Corazón','Celebrar','g-amarillo.webp',1,'corazon']].map(e=>`<button class="elem" data-a="el" data-v="${e[4]}"><i class="bg${e[3]?' gs':''}" style="background-image:url(img/${e[2]})"></i>${e[3]?'<i class="tint"></i>':''}<span>${e[0]}</span><b>${e[1]}</b></button>`).join('')}</div>
+<div class="eyebrow">SUMATE A LA EXPERIENCIA</div>
+<div class="tiles">
+ <button class="tile tm" data-a="mural"><b>Mural de Bioferia</b><span>Lo que más te gustó, en un gran cuadro.</span><em>Sumar mi foto</em></button>
+ <div class="tile game"><div class="seed"><svg width="60" height="54" viewBox="0 0 84 76" aria-hidden="true"><defs>
 <radialGradient id="sg1" cx="34%" cy="28%" r="78%"><stop offset="0" stop-color="#ffffff"/><stop offset=".28" stop-color="#e4e4ec"/><stop offset=".62" stop-color="#9a9aa6"/><stop offset="1" stop-color="#3b3b45"/></radialGradient>
 <radialGradient id="sg2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
 <filter id="sgb" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6"/></filter></defs>
@@ -462,7 +512,9 @@ function vHome(){return`
 <path d="M13 36C8 21 22 9 42 9c20 0 34 10 33 27-1 17-14 29-33 29C27 65 17 53 13 36z" fill="url(#sg1)"><animate attributeName="d" dur="7s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1" keyTimes="0;.33;.66;1" values="M13 36C8 21 22 9 42 9c20 0 34 10 33 27-1 17-14 29-33 29C27 65 17 53 13 36z;M12 40C9 24 25 11 44 11c19 0 31 9 31 25-1 17-13 28-31 28C28 64 15 56 12 40z;M15 33C11 19 24 8 40 8c21 0 36 12 33 29-2 16-15 27-31 27C28 64 19 49 15 33z;M13 36C8 21 22 9 42 9c20 0 34 10 33 27-1 17-14 29-33 29C27 65 17 53 13 36z"/></path>
 <ellipse cx="33" cy="24" rx="11" ry="6" transform="rotate(-24 33 24)" fill="#fff" opacity=".85" filter="url(#sgb)"><animateTransform attributeName="transform" type="translate" additive="sum" values="0 0;7 3;2 6;0 0" dur="7s" repeatCount="indefinite"/></ellipse>
 <ellipse cx="58" cy="30" rx="4" ry="2.4" transform="rotate(-30 58 30)" fill="#fff" opacity=".55" filter="url(#sgb)"><animateTransform attributeName="transform" type="translate" additive="sum" values="0 0;-4 3;-1 5;0 0" dur="7s" repeatCount="indefinite"/></ellipse>
-<path d="M22 50c6 8 17 11 27 8" stroke="#fff" stroke-opacity=".28" stroke-width="2.4" fill="none" stroke-linecap="round" filter="url(#sgb)"><animate attributeName="stroke-opacity" values=".15;.4;.15" dur="5s" repeatCount="indefinite"/></path></svg></div><div style="flex:1"><small>NOVEDAD 2027</small><h3>Hacé crecer tu semilla</h3><p>Jugá desde tu celu y descubrí en qué se convierte.</p><div class="row2"><a class="go" href="https://biojuego3d.vercel.app/" target="_blank" rel="noopener">Jugar ahora</a><button class="qrb" data-a="qrj" aria-label="Ver código QR">${ic('qr',24)}</button></div></div></div>
+<path d="M22 50c6 8 17 11 27 8" stroke="#fff" stroke-opacity=".28" stroke-width="2.4" fill="none" stroke-linecap="round" filter="url(#sgb)"><animate attributeName="stroke-opacity" values=".15;.4;.15" dur="5s" repeatCount="indefinite"/></path></svg></div><div class="gt"><small>NOVEDAD 2027</small><h3>Hacé crecer tu semilla</h3><div class="row2"><a class="go" href="https://biojuego3d.vercel.app/" target="_blank" rel="noopener">Jugar</a><button class="qrb" data-a="qrj" aria-label="Ver código QR">${ic('qr',22)}</button></div></div></div>
+</div>
+<button class="slim" data-a="tab" data-v="acc"><i class="th2"></i><div><b>Acciones ambientales</b><span>Sumate a quienes cuidan el planeta</span></div><i class="chev">${ic('chev')}</i></button>
 <div class="foot">Prototipo navegable · datos y organizaciones de ejemplo</div>`}
 
 /* ---------- agenda ---------- */
