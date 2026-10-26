@@ -292,12 +292,12 @@ input.err{border-color:var(--fuego)}
 .elems.sm .elem b{font-size:21px;letter-spacing:-.9px}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tile{border-radius:24px;min-height:210px;position:relative;overflow:hidden;text-align:left}
-.tm{display:flex;flex-direction:column;justify-content:flex-end;padding:14px;color:#fff;background:#FF00B2 url(img/acciones/selfie.jpg) 38% 28%/cover;isolation:isolate}
-.tm:before{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(255,0,178,.55) 0%,rgba(255,0,178,.25) 45%,rgba(70,0,52,.92) 100%)}
-.tm>*{position:relative;z-index:1}
-.tm b{font-size:21px;letter-spacing:-.8px;line-height:1.05}
-.tm span{font-size:13px;margin-top:4px;opacity:.95;line-height:1.25}
-.tm em{margin-top:10px;align-self:flex-start;font-style:normal;font-weight:800;font-size:14px;background:#fff;color:#0D0D12;padding:8px 14px;border-radius:20px}
+.tmu{display:flex;flex-direction:column;justify-content:flex-end;padding:14px;color:#fff;background:#FF00B2 url(img/acciones/selfie.jpg) 38% 28%/cover;isolation:isolate}
+.tmu:before{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(255,0,178,.55) 0%,rgba(255,0,178,.25) 45%,rgba(70,0,52,.92) 100%)}
+.tmu>*{position:relative;z-index:1}
+.tmu b{font-size:21px;letter-spacing:-.8px;line-height:1.05}
+.tmu span{font-size:13px;margin-top:4px;opacity:.95;line-height:1.25}
+.tmu em{margin-top:10px;align-self:flex-start;font-style:normal;font-weight:800;font-size:14px;background:#fff;color:#0D0D12;padding:8px 14px;border-radius:20px}
 .tiles .game{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border-radius:24px;min-height:210px}
 .tiles .game .seed{width:78px;height:78px;margin:0 0 2px -2px}
 .tiles .game .seed svg{width:60px;height:54px}
@@ -503,7 +503,7 @@ ${nowCard()}
 <div class="elems sm">${[['Fuego','Hacer','g-rojo.png',0,'fuego'],['Aire','Conectar','libelula.webp',0,'aire'],['Agua','Transformar','nautilo-poster.webp',0,'agua'],['Tierra','Cuidar','ramas-amarillo.png',0,'tierra'],['Corazón','Celebrar','g-amarillo.webp',1,'corazon']].map(e=>`<button class="elem" data-a="el" data-v="${e[4]}"><i class="bg${e[3]?' gs':''}" style="background-image:url(img/${e[2]})"></i>${e[3]?'<i class="tint"></i>':''}<span>${e[0]}</span><b>${e[1]}</b></button>`).join('')}</div>
 <div class="eyebrow">SUMATE A LA EXPERIENCIA</div>
 <div class="tiles">
- <button class="tile tm" data-a="mural"><b>Mural de Bioferia</b><span>Lo que más te gustó, en un gran cuadro.</span><em>Sumar mi foto</em></button>
+ <button class="tile tmu" data-a="mural"><b>Mural de Bioferia</b><span>Lo que más te gustó, en un gran cuadro.</span><em>Sumar mi foto</em></button>
  <div class="tile game"><div class="seed"><svg width="60" height="54" viewBox="0 0 84 76" aria-hidden="true"><defs>
 <radialGradient id="sg1" cx="34%" cy="28%" r="78%"><stop offset="0" stop-color="#ffffff"/><stop offset=".28" stop-color="#e4e4ec"/><stop offset=".62" stop-color="#9a9aa6"/><stop offset="1" stop-color="#3b3b45"/></radialGradient>
 <radialGradient id="sg2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
