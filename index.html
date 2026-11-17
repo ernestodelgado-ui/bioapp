@@ -314,6 +314,63 @@ input.err{border-color:var(--fuego)}
 .slim .chev{margin-left:auto;color:var(--mut)}
 .hero h1{font-size:40px;letter-spacing:-2px}
 @media(max-width:350px){.hero h1{font-size:34px}.hero .cta1{font-size:18px}.tiles{gap:10px}}
+/* ---- 7 días para cambiar ---- */
+nav button{width:auto;flex:1;max-width:62px}nav button.on{width:auto;flex:1.35;max-width:78px}
+.s7h{margin:2px 0 12px}.s7h small{font-weight:800;letter-spacing:1.6px;font-size:12px;color:var(--corazon)}
+.s7h h1{font-size:36px;margin:2px 0 6px}.s7h p{margin:0;font-size:17px;line-height:1.35;color:#2b2b33}
+.s7seg button{font-size:13px;padding:10px 4px;line-height:1.15}
+.s7p{margin:6px 0 12px;font-size:15px;line-height:1.4}.s7small{display:block;text-align:center;margin-top:12px;font-size:15px}
+.s7h2{font-size:20px;margin:24px 0 10px;letter-spacing:-.6px}.s7lab{font-weight:800;letter-spacing:1.2px;font-size:11px;color:var(--mut)}
+.ch7{border:1.5px solid var(--line);border-left:7px solid var(--c);border-radius:22px;padding:14px 14px 14px 16px;margin-bottom:12px;background:#fff}
+.ch7 b{font-size:21px;letter-spacing:-.6px;display:block}.ch7 p{margin:4px 0 10px;color:#3a3a45;font-size:15px;line-height:1.4}
+.s7tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.s7tags .tag{font-size:12px;padding:4px 9px}
+.ch7.sel{border-color:var(--c)}
+.mods{display:flex;justify-content:space-between;gap:6px;position:relative;margin:14px 0 8px}
+.mods:before{content:'';position:absolute;left:4%;right:4%;top:50%;height:8px;margin-top:-4px;background:var(--c);border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform 1s .4s ease;z-index:0}
+.mods.done:before{transform:scaleX(1)}
+.mods .m{position:relative;z-index:1;flex:1;aspect-ratio:1;max-width:46px;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:15px;color:var(--mut);background:#fff;border:2px dashed #c4c4ce;transition:.35s}
+.mods .m.on{background:var(--c);border:2px solid var(--c);color:var(--cf,#fff);transform:scale(1.05)}
+.mods .m.next{border:2.5px solid var(--ink);border-style:solid;color:var(--ink);animation:pul7 1.8s ease-in-out infinite}
+@keyframes pul7{50%{transform:scale(1.12)}}
+.mods.done .m{animation:join7 1s ease both}.mods.done .m:nth-child(2){animation-delay:.08s}.mods.done .m:nth-child(3){animation-delay:.16s}.mods.done .m:nth-child(4){animation-delay:.24s}.mods.done .m:nth-child(5){animation-delay:.32s}.mods.done .m:nth-child(6){animation-delay:.4s}.mods.done .m:nth-child(7){animation-delay:.48s}
+@keyframes join7{0%{transform:scale(.6) translateY(14px);opacity:0}60%{transform:scale(1.18)}100%{transform:scale(1);opacity:1}}
+.s7day{display:flex;justify-content:space-between;align-items:baseline;margin:4px 0 8px}.s7day b{font-size:19px;letter-spacing:-.4px}.s7day span{color:var(--mut);font-size:14px}
+.s7tip{display:flex;gap:8px;align-items:flex-start;background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.35;margin-bottom:12px}.s7tip svg{margin-top:1px}.s7tip b{display:inline;font-size:inherit;letter-spacing:0}
+.s7dates{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.s7dates .tag{font-size:12px;padding:4px 9px;background:#fff}
+.hst{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.hst i{width:34px;height:34px;border-radius:55% 45% 50% 50%/50% 55% 45% 50%;background:var(--c);flex:none}.hst b{display:block;font-size:17px}.hst span{font-size:13px;color:var(--mut)}
+.s7dev{margin-top:26px}
+.empty7{text-align:center;padding:18px 6px}.empty7 b{display:block;font-size:22px;letter-spacing:-.6px;margin:12px 0 6px}.empty7 p{color:var(--mut);margin:0 0 16px}
+.rw7{border:1.5px solid var(--line);border-top:7px solid var(--c);border-radius:22px;padding:14px;margin-bottom:14px;background:#fff}
+.rt7{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.rt7 .tag,.rw7 .tag{font-size:12px;padding:4px 9px}
+.rw7>b{font-size:20px;letter-spacing:-.5px}.big7{font-size:26px;font-weight:900;letter-spacing:-1px;line-height:1.08;margin:4px 0 8px}
+.kv7{display:flex;flex-direction:column;gap:4px;font-size:14px;color:#3a3a45}.kv7 span{display:flex;gap:6px;align-items:center}
+.cond7{font-size:14px;color:#3a3a45;margin:8px 0;line-height:1.35}
+.code7{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--soft);border-radius:16px;padding:12px;margin-top:6px}
+.code7 small{font-weight:800;letter-spacing:1px;font-size:11px;color:var(--mut);display:block}.code7 code{font-family:ui-monospace,Consolas,monospace;font-size:17px;font-weight:700;display:block;margin:3px 0}
+.need7{margin:0;padding-left:20px;font-size:16px;line-height:1.5}
+.s7demo{margin:8px 0 12px;font-size:14px;padding:12px}
+.near7{margin:2px 0 10px}
+#s7map{position:relative;z-index:0;isolation:isolate;height:340px;border-radius:22px;overflow:hidden;background:#e8f1f1;border:1.5px solid var(--line)}
+#s7map .ml7,.ml7{display:grid;place-items:center;height:100%;text-align:center;padding:20px;color:var(--mut);font-size:15px}
+.legend7{display:flex;gap:16px;font-size:13px;color:var(--mut);margin:8px 2px 0}.legend7 span{display:flex;gap:6px;align-items:center}
+.legend7 i,.pin7{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;flex:none}
+.legend7 i.u,.pin7.u{background:var(--ink);color:#fff;border:2px solid var(--ink)}.legend7 i.p,.pin7.p{background:#fff;border:2px dashed #8d8d99}
+.pin7{width:30px;height:30px;border:2.5px solid var(--c)!important}.pin7.u{background:var(--c);color:var(--cf,#fff)}.pin7 svg{width:16px;height:16px}
+.s7pin span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;box-shadow:0 2px 8px rgba(13,13,18,.35)}
+.s7pin span.u{background:var(--c);border:3px solid #0D0D12;color:var(--cf,#fff)}.s7pin span.p{background:#fff;border:3px dashed var(--c)}
+.s7pin span svg{width:16px;height:16px}.s7pin.sel span{transform:scale(1.3);box-shadow:0 0 0 5px rgba(255,0,178,.35)}
+.s7me span{display:block;width:18px;height:18px;border-radius:50%;background:#0A5CFF;border:3px solid #fff;box-shadow:0 0 0 6px rgba(10,92,255,.25)}
+.b7{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:1.5px solid var(--line);border-radius:20px;padding:12px;margin-bottom:10px;background:#fff}
+.b7 .pin7{flex:none}.b7>div{flex:1;min-width:0}.b7 b{display:block;font-size:17px;letter-spacing:-.3px;line-height:1.15}.b7 span{display:block;font-size:13px;color:var(--mut);margin-top:2px}.b7 em{display:block;font-style:normal;font-weight:700;font-size:14px;margin-top:4px}.b7>.tag{flex:none;font-size:11px;padding:4px 8px}
+.leaflet-container{font-family:inherit}
+.cel7{position:absolute;inset:0;z-index:70;background:#0D0D12;color:#fff;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;transition:opacity .4s}
+.cel7.go{opacity:1}.cel7 .cin{position:relative;z-index:2;width:100%;max-width:360px}.cel7 .cmods{margin-bottom:18px}
+.cel7 .mods .m{max-width:40px;font-size:13px}
+.cel7 h2{font-size:34px;line-height:1;letter-spacing:-1.6px;margin:0 0 10px;color:#fff}.cel7 p{font-size:18px;line-height:1.35;color:#d8d8e2;margin:0 0 10px}.cel7 small{display:block;color:#a9a9b8;margin-bottom:18px}
+.cel7 .btn{margin-bottom:10px}.cel7 .skip{display:inline-block;margin-top:6px;color:#a9a9b8;text-decoration:underline;font-size:15px}
+.cf7{position:absolute;top:-30px;z-index:1;opacity:.95;animation:cfall7 linear infinite}
+@keyframes cfall7{to{transform:translateY(1000px) rotate(520deg)}}
+@media(prefers-reduced-motion:reduce){.cf7{display:none}}
 </style>
 </head>
 <body>
@@ -477,7 +534,7 @@ function render(){const _oldV=document.querySelector('.hv');setTimeout(()=>{if(L
  else if(V.sub==='mis')mn.innerHTML=vMis();
  else if(V.sub&&V.sub.startsWith('el:'))mn.innerHTML=vElem(V.sub.slice(3));
  else if(V.sub==='mural'){mn.innerHTML=vMural();$('#cta').innerHTML=muCta()}
- else mn.innerHTML={home:vHome,agenda:vAgenda,mapa:vMapa,acc:vAcc,ent:vEnt}[V.tab]();
+ else mn.innerHTML={home:vHome,agenda:vAgenda,mapa:vMapa,acc:vAcc,ent:vEnt,siete:(window.v7||(()=>''))}[V.tab]();
  if(V.tab==='mapa'&&!V.sub)mapInit();
  heroVideo(_oldV);
 }
@@ -981,6 +1038,211 @@ setInterval(()=>tick(false),1000);
 let LOGO=null;
 function logoClean(){const im=new Image();im.onload=()=>{try{const S=4,c=document.createElement('canvas');c.width=im.naturalWidth*S;c.height=im.naturalHeight*S;const x=c.getContext('2d');x.imageSmoothingQuality='high';x.drawImage(im,0,0,c.width,c.height);const id=x.getImageData(0,0,c.width,c.height),d=id.data;for(let i=0;i<d.length;i+=4){let a=Math.max(0,Math.min(1,1-d[i+1]/247));const t=Math.max(0,Math.min(1,(a-.3)/.4));a=t*t*(3-2*t);d[i]=255;d[i+1]=0;d[i+2]=178;d[i+3]=Math.round(a*255)}x.putImageData(id,0,0);LOGO=c.toDataURL('image/png');logoApply()}catch(e){}};im.src='img/logo-magenta.png'}
 render();logoClean();if(!S.wel)showWelcome();tick(false);setTimeout(()=>{const e=$('#sp');e.classList.add('out');setTimeout(()=>e.remove(),600)},1100);
+</script>
+<script src="beneficios.js"></script>
+<script>
+/* ===== 7 DÍAS PARA CAMBIAR ===== (sección agregada; no modifica las demás pantallas) */
+(function(){
+const D=window.BIO7_DATA||{categorias:[],desafios:[],beneficios:[]};
+const KEY='bioferia27_7d';
+const CAT_COL={alim:COL.tierra,moda:COL.corazon,eco:COL.aire,mov:COL.agua,talleres:COL.fuego};
+const catN=id=>(D.categorias.find(c=>c.id===id)||{n:id}).n;
+const catC=id=>CAT_COL[id]||COL.gris;
+const CK='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg>';
+const SHP=['58% 42% 55% 45%/50% 45% 55% 50%','45% 55% 40% 60%/55% 50% 50% 45%','60% 40% 50% 50%/45% 55% 45% 55%','50% 50% 58% 42%/58% 42% 50% 50%','42% 58% 50% 50%/50% 60% 40% 50%','55% 45% 45% 55%/45% 50% 55% 50%','48% 52% 60% 40%/55% 45% 55% 45%'];
+if(typeof IC==='object'){IC.siete='<circle cx="7" cy="7" r="2.4"/><circle cx="17" cy="7" r="2.4"/><circle cx="12" cy="12" r="2.4"/><circle cx="7" cy="17" r="2.4"/><circle cx="17" cy="17" r="2.4"/><path d="M12 3v3M12 18v3"/>'}
+/* ---- barra y color de sección ---- */
+TABS.push(['siete','siete','7 días','--corazon']);
+SEC.siete=['--corazon','#fff'];
+
+/* ---- estado guardado en el navegador (solo demostración) ---- */
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return{v:1,ch:null,hist:[],rew:[],off:0}}
+let ST=load();
+const save7=()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}};
+const UI={tab:'des',q:'',cat:'all',st:'all',focus:null,user:null};
+/* ---- fechas (día local; el reloj de demo permite avanzar días) ---- */
+const dstr=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today=()=>dstr(new Date(Date.now()+ST.off*864e5));
+const fmt=iso=>{const p=iso.split('-');return p[2]+'/'+p[1]+'/'+p[0]};
+const fshort=iso=>{const p=iso.split('-');return p[2]+'/'+p[1]};
+const weekIdx=()=>{const p=today().split('-').map(Number);return Math.floor((Date.UTC(p[0],p[1]-1,p[2])/864e5+3)/7)};
+function weekly(){const n=D.desafios.length,k=5,s=(weekIdx()*k)%Math.max(n,1);return Array.from({length:Math.min(k,n)},(_,i)=>D.desafios[(s+i)%n])}
+const chById=id=>D.desafios.find(d=>d.id===id)||{id,t:'Desafío',d:'',tip:'',cats:[]};
+const bById=id=>D.beneficios.find(b=>b.id===id);
+const rewOf=bid=>ST.rew.find(r=>r.bid===bid);
+const unlocked=bid=>!!rewOf(bid);
+const expired=b=>b.vence&&b.vence<today();
+const dirUrl=b=>b.lat!=null?'https://www.google.com/maps/dir/?api=1&destination='+b.lat+','+b.lng:null;
+const km=(a,b,c,d)=>{const R=6371,t=x=>x*Math.PI/180,dl=t(c-a),dn=t(d-b),h=Math.sin(dl/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+const rnd=()=>{const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<4;i++)s+=a[Math.floor(Math.random()*a.length)];return s};
+const place=b=>b.online?'Solo online':(b.demo?'Dirección de ejemplo (no verificada) · '+b.zona:(b.direccion||'Dirección a confirmar'));
+
+/* ---- pantalla ---- */
+window.v7=function(){return`<div class="s7h"><small>EL CAMBIO SE ACTIVA</small><h1>7 días para cambiar</h1><p>Elegí un desafío. Hacelo durante siete días. Activá tu recompensa.</p></div>
+<div class="seg s7seg">${[['des','Mi desafío'],['rew','Mis recompensas'],['map','Mapa de beneficios']].map(t=>`<button data-a="s7tab" data-v="${t[0]}" class="${UI.tab===t[0]?'on':''}">${t[1]}</button>`).join('')}</div><div id="s7b"></div>`};
+function draw(){const b=document.getElementById('s7b');if(!b||V.tab!=='siete')return;
+ document.querySelectorAll('.s7seg button').forEach(x=>x.classList.toggle('on',x.dataset.v===UI.tab));
+ destroyMap();
+ b.innerHTML=UI.tab==='des'?dDes():UI.tab==='rew'?dRew():dMap();
+ if(UI.tab==='map')initMap()}
+const _render=render;render=function(){_render();if(V.tab==='siete')draw()};
+
+/* ---- MI DESAFÍO ---- */
+function mods(n,col,done){return`<div class="mods ${done?'done':''}" style="--c:${col};--cf:${fgOn(col)}">${[...Array(7)].map((_,i)=>`<i class="m ${i<n?'on':''} ${i===n&&!done?'next':''}" style="border-radius:${SHP[i]}">${i<n?CK:i+1}</i>`).join('')}</div>`}
+function dDes(){const c=ST.ch;
+ let h='';
+ if(!c){
+  h+=`<p class="mut s7p">Esta semana te proponemos estos desafíos. Podés empezar cuando quieras y tenés todo el año para completarlos. Cada semana se renuevan.</p>`;
+  h+=weekly().map(d=>{const col=catC(d.cats[0]);return`<div class="ch7" style="--c:${col}"><b>${esc(d.t)}</b><p>${esc(d.d)}</p><div class="s7tags">${d.cats.map(k=>`<span class="tag" style="background:${LIGHT[catC(k)]||'var(--soft)'}">${esc(catN(k))}</span>`).join('')}</div><button class="btn sm" style="background:${col};color:${fgOn(col)}" data-a="s7start" data-v="${d.id}">Empezar este desafío</button></div>`}).join('');
+ }else{
+  const d=chById(c.id),col=catC(d.cats[0]),n=c.marks.length,t=today(),hoy=c.marks.includes(t);
+  h+=`<div class="ch7 sel" style="--c:${col};background:${LIGHT[col]||'#fff'}"><small class="s7lab">TU DESAFÍO · EMPEZÓ EL ${fmt(c.start)}</small><b>${esc(d.t)}</b><p>${esc(d.d)}</p>
+  ${mods(n,col,false)}<div class="s7day"><b>Día ${Math.min(n+(hoy?0:1),7)} de 7</b><span>${n} de 7 cumplidos</span></div>
+  <div class="s7tip">${ic('leaf',18)}<span><b>Idea para hoy:</b> ${esc(d.tip)}</span></div>
+  <button class="btn ${hoy?'dis':''}" style="${hoy?'':`background:${col};color:${fgOn(col)}`}" data-a="s7mark">${hoy?'Hoy ya lo cumpliste · volvé mañana':'Cumplí mi desafío de hoy'}</button>
+  ${n?`<div class="s7dates">${c.marks.map((m,i)=>`<span class="tag">Día ${i+1} · ${fshort(m)}</span>`).join('')}</div>`:''}
+  <a class="link s7small" data-a="s7leave">Cambiar de desafío</a></div>`;
+ }
+ h+=`<h2 class="s7h2">Desafíos completados</h2>`+(ST.hist.length?ST.hist.slice().reverse().map(x=>{const d=chById(x.cid),col=catC(d.cats[0]);return`<div class="hst" style="--c:${col}"><i></i><div><b>${esc(d.t)}</b><span>${fmt(x.start)} → ${fmt(x.end)} · ${x.rew.length} recompensa${x.rew.length===1?'':'s'}</span></div></div>`}).join(''):`<p class="mut s7p">Todavía no completaste ningún desafío. El primero empieza hoy.</p>`);
+ h+=`<div class="dc s7dev"><h4>${ic('clock',22)}Herramientas de demostración</h4><p class="hint">Fecha usada por esta sección: <b>${fmt(today())}</b>${ST.off?` (simulada ${ST.off>0?'+':''}${ST.off} d)`:''}. Sirven para probar los siete días sin esperar.</p><div class="g2" style="margin-top:8px"><button class="pill" data-a="s7day" data-v="1">Pasó un día</button><button class="pill" data-a="s7day" data-v="-1">Volver un día</button><button class="pill f" data-a="s7reset">Reiniciar “7 días”</button></div></div>`;
+ return h}
+
+/* ---- acciones del desafío ---- */
+function start(id){if(ST.ch&&!confirm('Ya tenés un desafío en curso. ¿Querés reemplazarlo? Se pierde su avance.'))return;
+ ST.ch={id,start:today(),marks:[]};save7();draw();toast('¡Desafío iniciado!','Cada día marcá lo que hiciste. Son siete.')}
+function mark(){const c=ST.ch;if(!c)return;const t=today();
+ if(c.marks.includes(t)){toast('Hoy ya lo cumpliste','Volvé mañana para el siguiente día.');return}
+ if(c.marks.some(m=>m>t)){toast('Fecha no válida','Hay un registro con fecha futura. No se puede completar.');return}
+ c.marks.push(t);
+ if(c.marks.length>=7){finish();return}
+ save7();draw();toast('¡Día '+c.marks.length+' cumplido!','Te faltan '+(7-c.marks.length)+' para activar tu recompensa.')}
+function finish(){const c=ST.ch,d=chById(c.id);
+ const bens=D.beneficios.filter(b=>d.cats.includes(b.cat));
+ const nuevos=bens.filter(b=>!unlocked(b.id));
+ nuevos.forEach(b=>ST.rew.push({bid:b.id,cid:c.id,ts:today(),code:'DEMO-'+rnd()+'-'+rnd()}));
+ const entry={id:'h'+Date.now(),cid:c.id,start:c.start,end:today(),marks:c.marks.slice(),rew:bens.map(b=>b.id)};
+ ST.hist.push(entry);ST.ch=null;save7();
+ UI.tab='rew';draw();celebrate(d,nuevos.length,bens.length)}
+
+/* ---- celebración ---- */
+function celebrate(d,nNew,nAll){const old=document.getElementById('cel7');if(old)old.remove();
+ const col=catC(d.cats[0]),cs=[COL.fuego,COL.aire,COL.agua,COL.tierra,COL.corazon];
+ let cf='';for(let i=0;i<26;i++){const s=8+Math.random()*16;cf+=`<i class="cf7" style="left:${Math.random()*100}%;width:${s}px;height:${s*(.6+Math.random()*.6)}px;background:${cs[i%5]};border-radius:${SHP[i%7]};animation-duration:${3.5+Math.random()*3}s;animation-delay:${Math.random()*1.4}s"></i>`}
+ const el=document.createElement('div');el.id='cel7';el.className='cel7';
+ el.innerHTML=cf+`<div class="cin"><div class="cmods">${mods(7,col,true).replace('class="mods ','class="mods cel ')}</div>
+ <h2>¡Lo hiciste! 7 días activando el cambio</h2><p>Tu compromiso tiene recompensa. Descubrí dónde podés aprovecharla.</p>
+ <small>${nNew?`Desbloqueaste ${nNew} beneficio${nNew===1?'':'s'} (de ejemplo).`:'Ya tenías estos beneficios desbloqueados.'}</small>
+ <button class="btn" data-a="s7rew" style="background:var(--corazon);color:#fff">Ver mi recompensa</button><button class="btn out" data-a="s7find" style="color:#fff;border-color:#fff;background:transparent">Encontrar en el mapa</button><a class="skip" data-a="s7close">Seguir</a></div>`;
+ $('#app').appendChild(el);requestAnimationFrame(()=>el.classList.add('go'))}
+const closeCel=()=>{const e=document.getElementById('cel7');if(e)e.remove()};
+
+/* ---- MIS RECOMPENSAS ---- */
+function rewCard(r){const b=bById(r.bid);if(!b)return'';const col=catC(b.cat),ex=expired(b);
+ return`<div class="rw7" style="--c:${col}"><div class="rt7"><span class="tag" style="background:${LIGHT[col]||'var(--soft)'}">${esc(catN(b.cat))}</span>${ex?'<span class="tag red">Vencido</span>':'<span class="tag ok">Desbloqueado</span>'}${b.demo?'<span class="tag">Ejemplo</span>':''}</div>
+ <b>${esc(b.nombre)}</b><div class="big7">${esc(b.beneficio)}</div>
+ <div class="kv7"><span>${ic('cal',16)}Vence el ${fmt(b.vence)}</span><span>${ic('pin',16)}${esc(place(b))}</span></div>
+ <p class="cond7"><b>Condiciones:</b> ${esc(b.cond)}</p>
+ <div class="code7"><div><small>CÓDIGO DE DEMOSTRACIÓN</small><code>${esc(r.code)}</code><span class="mut">Sin validez comercial.</span></div>${qr(r.code,92)}</div>
+ <div class="two" style="margin:12px 0 0">${b.online?`<a class="btn sm" style="text-decoration:none;background:var(--ink)" href="${esc(b.url)}" target="_blank" rel="noopener">Ir al sitio</a><span></span>`:`<button class="btn out sm" data-a="s7onmap" data-v="${b.id}">${ic('pin',18)}Ver en el mapa</button><button class="btn sm" style="background:var(--ink)" data-a="s7dir" data-v="${b.id}">${ic('route',18)}Cómo llegar</button>`}</div></div>`}
+function dRew(){const l=ST.rew.slice().reverse();
+ if(!l.length)return`<div class="empty7"><div class="mods" style="--c:${COL.corazon}">${[...Array(7)].map((_,i)=>`<i class="m" style="border-radius:${SHP[i]}">${i+1}</i>`).join('')}</div><b>Todavía no tenés recompensas</b><p>Completá siete días de un desafío para desbloquear descuentos en emprendimientos sustentables.</p><button class="btn" style="background:var(--corazon)" data-a="s7tab" data-v="des">Elegir un desafío</button><a class="link s7small" data-a="s7tab" data-v="map">Mirar los beneficios del mapa</a></div>`;
+ return`<p class="mut s7p">Tus descuentos desbloqueados. Presentá el código en el comercio.</p>`+l.map(rewCard).join('')+`<div class="note g" style="margin-top:6px">${ic('shield',24)}<div>Comercios, descuentos y códigos de esta sección son de <b>demostración</b>. Para descuentos reales, los códigos se validan y canjean una sola vez con un servicio seguro.</div></div>`}
+
+/* ---- MAPA DE BENEFICIOS ---- */
+let MAP=null,LAY=null,UM=null,LF=null;
+function filt(){const q=UI.q.trim().toLowerCase();
+ return D.beneficios.filter(b=>{
+  if(UI.cat!=='all'&&b.cat!==UI.cat)return false;
+  const u=unlocked(b.id);if(UI.st==='unl'&&!u)return false;if(UI.st==='avl'&&u)return false;
+  if(q&&![b.nombre,catN(b.cat),b.zona,b.beneficio].join(' ').toLowerCase().includes(q))return false;return true})}
+function dMap(){const l=filt();
+ return`<p class="mut s7p" style="margin-top:0">Descubrí dónde activar tus recompensas.</p>
+ <div class="note g s7demo">${ic('info',20)}<div>Demostración: comercios y ubicaciones <b>ficticios</b>. Sin ubicación verificada, no se dibujan en el mapa.</div></div>
+ <div class="search"><svg class="i" viewBox="0 0 24 24" style="color:var(--mut)"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="s7q" placeholder="Comercio, categoría o zona" value="${esc(UI.q)}"></div>
+ <div class="chips">${[['all','Todos los beneficios']].concat(D.categorias.map(c=>[c.id,c.n])).map(c=>`<button class="chip ${UI.cat===c[0]?'on':''}" data-a="s7cat" data-v="${c[0]}" style="${UI.cat===c[0]?(k=>`background:${k};border-color:${k};color:${fgOn(k)}`)(c[0]==='all'?'#0D0D12':catC(c[0])):''}">${esc(c[1])}</button>`).join('')}</div>
+ <div class="chips">${[['all','Todos'],['unl','Desbloqueados'],['avl','Disponibles para desbloquear']].map(c=>`<button class="chip ${UI.st===c[0]?'on':''}" data-a="s7st" data-v="${c[0]}">${c[1]}</button>`).join('')}</div>
+ <button class="btn out sm near7" data-a="s7near">${ic('loc',20)}Cerca de mí</button>
+ <div id="s7map"><div class="ml7">Cargando mapa…</div></div>
+ <div class="legend7"><span><i class="u"></i>Desbloqueado</span><span><i class="p"></i>Por desbloquear</span></div>
+ <h2 class="s7h2" id="s7cnt">${l.length} comercio${l.length===1?'':'s'}</h2><div id="s7list">${listHtml(l)}</div>`}
+function listHtml(l){if(!l.length)return'<p class="mut s7p">No hay beneficios con esos filtros.</p>';
+ if(UI.user)l=l.slice().sort((a,b)=>(a.lat==null)-(b.lat==null)||(a.lat==null?0:km(UI.user[0],UI.user[1],a.lat,a.lng)-km(UI.user[0],UI.user[1],b.lat,b.lng)));
+ return l.map(b=>{const col=catC(b.cat),u=unlocked(b.id),dist=UI.user&&b.lat!=null?km(UI.user[0],UI.user[1],b.lat,b.lng):null;
+  return`<button class="b7" data-a="s7card" data-v="${b.id}" style="--c:${col};--cf:${fgOn(col)}"><i class="pin7 ${u?'u':'p'}">${u?CK:''}</i><div><b>${esc(b.nombre)}</b><span>${esc(catN(b.cat))} · ${esc(b.zona)}${dist!=null?' · '+(dist<1?Math.round(dist*1000)+' m':dist.toFixed(1)+' km'):''}</span><em>${esc(b.beneficio)}</em></div>${u?'<span class="tag ok">Desbloqueado</span>':'<span class="tag">Por desbloquear</span>'}</button>`}).join('')}
+function refreshList(){const l=filt(),h=document.getElementById('s7list');if(h)h.innerHTML=listHtml(l);const c=document.getElementById('s7cnt');if(c)c.textContent=l.length+' comercio'+(l.length===1?'':'s');drawPins()}
+function loadLeaflet(){if(window.L)return Promise.resolve();if(LF)return LF;
+ LF=new Promise((res,rej)=>{const l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';document.head.appendChild(l);
+  const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js';s.onload=res;s.onerror=()=>{LF=null;rej(new Error('leaflet'))};document.head.appendChild(s)});return LF}
+function destroyMap(){if(MAP){try{MAP.remove()}catch(e){}}MAP=null;LAY=null;UM=null}
+function initMap(){const box=document.getElementById('s7map');if(!box)return;
+ loadLeaflet().then(()=>{if(!document.getElementById('s7map')||UI.tab!=='map'||V.tab!=='siete')return;
+  box.innerHTML='';MAP=L.map(box,{zoomControl:true,tap:true}).setView([-34.5880,-58.4290],13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(MAP);
+  LAY=L.layerGroup().addTo(MAP);drawPins(true);
+  if(UI.user){userMark()}
+  setTimeout(()=>{if(!MAP)return;MAP.invalidateSize();if(UI.focus){const e=document.getElementById('s7map');if(e)e.scrollIntoView({block:'center'})}},250)
+ }).catch(()=>{box.innerHTML='<div class="ml7">No pudimos cargar el mapa (sin conexión). Podés explorar los comercios en el listado de abajo.</div>'})}
+function pinIcon(b,sel){const u=unlocked(b.id),col=catC(b.cat);return L.divIcon({className:'s7pin'+(sel?' sel':''),html:`<span class="${u?'u':'p'}" style="--c:${col};--cf:${fgOn(col)}">${u?CK:''}</span>`,iconSize:[34,34],iconAnchor:[17,17]})}
+function drawPins(fit){if(!MAP||!LAY)return;LAY.clearLayers();const pts=[];
+ filt().forEach(b=>{if(b.lat==null||b.lng==null)return;const m=L.marker([b.lat,b.lng],{icon:pinIcon(b,UI.focus===b.id),title:b.nombre,keyboard:true}).addTo(LAY);m.on('click',()=>openCard(b.id));pts.push([b.lat,b.lng])});
+ if(UI.focus){const f=bById(UI.focus);if(f&&f.lat!=null){MAP.setView([f.lat,f.lng],16);return}}
+ if(fit&&pts.length){MAP.fitBounds(pts,{padding:[30,30],maxZoom:15})}}
+function userMark(){if(!MAP||!UI.user)return;if(UM)UM.remove();UM=L.marker(UI.user,{icon:L.divIcon({className:'s7me',html:'<span></span>',iconSize:[20,20],iconAnchor:[10,10]}),interactive:false}).addTo(MAP)}
+function near(){if(!navigator.geolocation){toast('Sin ubicación','Este navegador no permite usar tu ubicación.');return}
+ toast('Buscando tu ubicación…','Aceptá el permiso del navegador para ver beneficios cercanos.');
+ navigator.geolocation.getCurrentPosition(p=>{UI.user=[p.coords.latitude,p.coords.longitude];UI.focus=null;userMark();
+  const l=filt().filter(b=>b.lat!=null).sort((a,b)=>km(UI.user[0],UI.user[1],a.lat,a.lng)-km(UI.user[0],UI.user[1],b.lat,b.lng));
+  if(MAP){const pts=[UI.user].concat(l.slice(0,3).map(b=>[b.lat,b.lng]));MAP.fitBounds(pts,{padding:[40,40],maxZoom:16})}
+  refreshList();toast('Listo','Mostramos primero los beneficios más cercanos.')},
+  err=>{toast('No pudimos ubicarte','Seguí buscando por nombre, categoría o zona. El mapa funciona igual.')},{enableHighAccuracy:false,timeout:12000,maximumAge:60000})}
+
+/* ---- tarjeta de comercio y de beneficio ---- */
+function openCard(id){const b=bById(id);if(!b)return;UI.focus=id;const u=unlocked(id),col=catC(b.cat),url=dirUrl(b);
+ if(MAP&&LAY)drawPins();
+ const need=D.desafios.filter(d=>d.cats.includes(b.cat));
+ sheet(esc(b.nombre),`<div style="display:flex;gap:8px;flex-wrap:wrap;margin:-6px 0 12px"><span class="tag" style="background:${LIGHT[col]||'var(--soft)'}">${esc(catN(b.cat))}</span>${u?'<span class="tag ok">Desbloqueado</span>':'<span class="tag">Por desbloquear</span>'}${b.demo?'<span class="tag">Ejemplo</span>':''}</div>
+ <div class="kv7"><span>${ic('pin',16)}${esc(place(b))}</span></div><p style="margin:8px 0;font-size:17px">${esc(b.desc)}</p>
+ <div class="big7" style="--c:${col}">${esc(b.beneficio)}</div><div class="kv7"><span>${ic('cal',16)}Vence el ${fmt(b.vence)}${expired(b)?' · vencido':''}</span></div>
+ ${b.demo&&b.ubic==='demo'?'<p class="cond7">La ubicación es de ejemplo: no corresponde a un comercio real.</p>':''}
+ <div class="two" style="margin:14px 0 0">${b.online?`<a class="btn out sm" style="text-decoration:none" href="${esc(b.url)}" target="_blank" rel="noopener">Ir al sitio</a>`:`<button class="btn out sm" data-a="s7dir" data-v="${id}">${ic('route',18)}Cómo llegar</button>`}<button class="btn sm" style="background:${col};color:${fgOn(col)}" data-a="s7ben" data-v="${id}">Ver beneficio</button></div>`)}
+function openBen(id){const b=bById(id),r=rewOf(id);if(!b)return;
+ if(r){sheet('Tu beneficio',rewCard(r));return}
+ const need=D.desafios.filter(d=>d.cats.includes(b.cat));
+ sheet('Por desbloquear',`<div class="big7" style="--c:${catC(b.cat)}">${esc(b.beneficio)}</div><p style="font-size:17px;margin:10px 0">${esc(b.nombre)} · ${esc(catN(b.cat))}</p><p class="cond7"><b>Condiciones:</b> ${esc(b.cond)}</p>
+ <p style="margin:12px 0 6px"><b>Se desbloquea completando 7 días de:</b></p><ul class="need7">${need.map(d=>`<li>${esc(d.t)}</li>`).join('')}</ul>
+ <button class="btn" style="background:var(--corazon);margin-top:12px" data-a="s7gotodes">Elegir un desafío</button>`)}
+function openMap(bid){UI.tab='map';UI.q='';UI.cat='all';UI.st='all';UI.focus=bid||null;closeSheet();closeCel();if(V.tab!=='siete')go('siete');else draw()}
+function directions(id){const b=bById(id);if(!b)return;const u=dirUrl(b);
+ if(!u){toast('Sin ubicación verificada','Este comercio todavía no tiene dirección confirmada.');return}
+ if(b.demo)toast('Ubicación de ejemplo','Abrimos el mapa con un punto ilustrativo, no un comercio real.');
+ window.open(u,'_blank','noopener')}
+
+/* ---- eventos ---- */
+Object.assign(clickMap,{
+ s7tab(e,el){UI.tab=el.dataset.v;if(V.tab!=='siete')go('siete');else draw()},
+ s7start(e,el){start(el.dataset.v)},
+ s7mark(){mark()},
+ s7leave(){if(ST.ch&&confirm('¿Querés cambiar de desafío? Se pierde el avance de este.')){ST.ch=null;save7();draw()}},
+ s7day(e,el){ST.off+=+el.dataset.v;save7();draw()},
+ s7reset(){if(confirm('¿Reiniciar “7 días para cambiar”? Se borran desafío, recompensas e historial de esta sección.')){ST={v:1,ch:null,hist:[],rew:[],off:0};save7();UI.tab='des';draw()}},
+ s7rew(){closeCel();UI.tab='rew';if(V.tab!=='siete')go('siete');else draw()},
+ s7find(){const b=ST.rew.length?ST.rew[ST.rew.length-1].bid:null;openMap(b);UI.st='unl';draw()},
+ s7close(){closeCel()},
+ s7cat(e,el){UI.cat=el.dataset.v;UI.focus=null;draw()},
+ s7st(e,el){UI.st=el.dataset.v;UI.focus=null;draw()},
+ s7near(){near()},
+ s7card(e,el){openCard(el.dataset.v);const b=bById(el.dataset.v);if(MAP&&b&&b.lat!=null){MAP.setView([b.lat,b.lng],16);document.getElementById('s7map').scrollIntoView({block:'nearest'})}},
+ s7ben(e,el){openBen(el.dataset.v)},
+ s7onmap(e,el){openMap(el.dataset.v)},
+ s7dir(e,el){directions(el.dataset.v)},
+ s7gotodes(){closeSheet();UI.tab='des';if(V.tab!=='siete')go('siete');else draw()}});
+document.addEventListener('input',e=>{if(e.target.id==='s7q'){UI.q=e.target.value;UI.focus=null;refreshList()}});
+/* al cerrar la tarjeta, se quita la selección del pin */
+new MutationObserver(()=>{if(!document.getElementById('ov')&&UI.focus&&MAP&&LAY&&UI.tab==='map'){const f=UI.focus;UI.focus=null;try{drawPins()}catch(e){}}}).observe(document.getElementById('app'),{childList:true});
+window.BIO7={state:()=>ST,ui:UI,draw,mark,start,today};
+$('#nv').innerHTML=nav();
+})();
+
 </script>
 </body>
 </html>

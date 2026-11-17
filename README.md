@@ -9,6 +9,7 @@ Es un sitio estático: un `index.html` y la carpeta `img/`. No necesita servidor
 - Agenda por día con filtros, inscripción a talleres, cupos y lista de espera
 - Mapa ilustrado con lugares, filtros por color y recorrido simulado
 - Acciones ambientales
+- **7 días para cambiar**: elegí un desafío, cumplilo siete días y desbloqueá beneficios; incluye "Mis recompensas" y un mapa de beneficios (Leaflet + OpenStreetMap)
 - Mural “Lo que más me gustó”: subir una foto con etiqueta de lo que más gustó y un marco de Bioferia por elemento (prototipo local, con revisión simulada)
 - Entradas (compra simulada y QR de demostración)
 - Avisos, modo DEMO (reloj simulado, cupos, sin conexión) y acceso al BioJuego
@@ -40,3 +41,10 @@ git push -u origin main
 - Las fotos de `img/acciones/` son de Wikimedia Commons (CC0 / dominio público). Detalle en `img/acciones/CREDITOS.txt`.
 - El estado de la demo (nombre, inscripciones) se guarda solo en el navegador de cada persona.
 - El BioJuego es externo: https://biojuego3d.vercel.app/
+
+
+## 7 días para cambiar: datos y mapa
+- Desafíos, comercios y beneficios están en `beneficios.js` (fácil de editar). **Todo lo cargado es ficticio** y está marcado como ejemplo.
+- Un comercio real se carga con `demo:false`, dirección verificada y coordenadas reales. Sin dirección verificada, dejá `lat:null, lng:null`: aparece en el listado pero no en el mapa.
+- El mapa usa Leaflet y teselas de OpenStreetMap (se cargan por internet, con su atribución). Para mucho tráfico conviene un proveedor de teselas propio.
+- El progreso se guarda en el navegador (`localStorage`): sirve para demostrar, pero **no es seguro para descuentos reales**. Para canjes reales hay que validar y canjear códigos únicos con un servicio seguro (ver `BIO7_API` en `beneficios.js`).
