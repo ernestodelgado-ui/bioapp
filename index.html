@@ -371,6 +371,9 @@ nav button{width:auto;flex:1;max-width:62px}nav button.on{width:auto;flex:1.35;m
 .cf7{position:absolute;top:-30px;z-index:1;opacity:.95;animation:cfall7 linear infinite}
 @keyframes cfall7{to{transform:translateY(1000px) rotate(520deg)}}
 @media(prefers-reduced-motion:reduce){.cf7{display:none}}
+.ex7{background:#FFF1C9;border-radius:20px;padding:14px;margin:0 0 14px}
+.ex7t{display:flex;gap:8px;align-items:center;margin-bottom:6px}.ex7t .tag{background:#0D0D12;color:#fff;font-size:11px;padding:3px 8px}.ex7t b{font-size:17px;letter-spacing:-.4px}
+.ex7 p{margin:0 0 8px;font-size:14px;line-height:1.35}.ex7 ol{margin:0 0 12px;padding-left:20px;font-size:14px;line-height:1.4}.ex7 li{margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -1056,7 +1059,13 @@ TABS.push(['siete','siete','7 días','--corazon']);
 SEC.siete=['--corazon','#fff'];
 
 /* ---- estado guardado en el navegador (solo demostración) ---- */
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return{v:1,ch:null,hist:[],rew:[],off:0}}
+const empty=()=>({v:1,ch:null,hist:[],rew:[],off:0});
+function example(){const f=n=>{const d=new Date(Date.now()-n*864e5);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+ return{v:1,demo:true,off:0,
+  ch:{id:'d3',start:f(4),marks:[f(4),f(3),f(2),f(1)]},
+  hist:[{id:'hx1',cid:'d4',start:f(21),end:f(14),marks:[f(21),f(20),f(19),f(18),f(17),f(16),f(15)],rew:['b1','b2','b3']}],
+  rew:[{bid:'b1',cid:'d4',ts:f(14),code:'DEMO-EJEM-0001'},{bid:'b2',cid:'d4',ts:f(14),code:'DEMO-EJEM-0002'},{bid:'b3',cid:'d4',ts:f(14),code:'DEMO-EJEM-0003'}]}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return example()}
 let ST=load();
 const save7=()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}};
 const UI={tab:'des',q:'',cat:'all',st:'all',focus:null,user:null};
@@ -1083,10 +1092,16 @@ window.v7=function(){return`<div class="s7h"><small>EL CAMBIO SE ACTIVA</small><
 function draw(){const b=document.getElementById('s7b');if(!b||V.tab!=='siete')return;
  document.querySelectorAll('.s7seg button').forEach(x=>x.classList.toggle('on',x.dataset.v===UI.tab));
  destroyMap();
- b.innerHTML=UI.tab==='des'?dDes():UI.tab==='rew'?dRew():dMap();
+ b.innerHTML=exBanner()+(UI.tab==='des'?dDes():UI.tab==='rew'?dRew():dMap());
  if(UI.tab==='map')initMap()}
 const _render=render;render=function(){_render();if(V.tab==='siete')draw()};
 
+/* ---- aviso de ejemplo ---- */
+function exBanner(){if(!ST.demo)return'';
+ return`<div class="ex7"><div class="ex7t"><span class="tag">EJEMPLO</span><b>Así se ve usada esta sección</b></div>
+ <p>Ya hay un desafío a mitad de camino y recompensas de un desafío anterior, para que veas cómo funciona.</p>
+ <ol><li><b>Mi desafío:</b> marcá cada día lo que hiciste.</li><li><b>Mis recompensas:</b> al completar 7 días se desbloquean descuentos.</li><li><b>Ver en el mapa:</b> tocá ese botón en una recompensa y te llevamos al comercio.</li></ol>
+ <button class="btn sm" style="background:var(--corazon);color:#fff" data-a="s7own">Empezar el mío</button></div>`}
 /* ---- MI DESAFÍO ---- */
 function mods(n,col,done){return`<div class="mods ${done?'done':''}" style="--c:${col};--cf:${fgOn(col)}">${[...Array(7)].map((_,i)=>`<i class="m ${i<n?'on':''} ${i===n&&!done?'next':''}" style="border-radius:${SHP[i]}">${i<n?CK:i+1}</i>`).join('')}</div>`}
 function dDes(){const c=ST.ch;
@@ -1104,7 +1119,7 @@ function dDes(){const c=ST.ch;
   <a class="link s7small" data-a="s7leave">Cambiar de desafío</a></div>`;
  }
  h+=`<h2 class="s7h2">Desafíos completados</h2>`+(ST.hist.length?ST.hist.slice().reverse().map(x=>{const d=chById(x.cid),col=catC(d.cats[0]);return`<div class="hst" style="--c:${col}"><i></i><div><b>${esc(d.t)}</b><span>${fmt(x.start)} → ${fmt(x.end)} · ${x.rew.length} recompensa${x.rew.length===1?'':'s'}</span></div></div>`}).join(''):`<p class="mut s7p">Todavía no completaste ningún desafío. El primero empieza hoy.</p>`);
- h+=`<div class="dc s7dev"><h4>${ic('clock',22)}Herramientas de demostración</h4><p class="hint">Fecha usada por esta sección: <b>${fmt(today())}</b>${ST.off?` (simulada ${ST.off>0?'+':''}${ST.off} d)`:''}. Sirven para probar los siete días sin esperar.</p><div class="g2" style="margin-top:8px"><button class="pill" data-a="s7day" data-v="1">Pasó un día</button><button class="pill" data-a="s7day" data-v="-1">Volver un día</button><button class="pill f" data-a="s7reset">Reiniciar “7 días”</button></div></div>`;
+ h+=`<div class="dc s7dev"><h4>${ic('clock',22)}Herramientas de demostración</h4><p class="hint">Fecha usada por esta sección: <b>${fmt(today())}</b>${ST.off?` (simulada ${ST.off>0?'+':''}${ST.off} d)`:''}. Sirven para probar los siete días sin esperar.</p><div class="g2" style="margin-top:8px"><button class="pill" data-a="s7day" data-v="1">Pasó un día</button><button class="pill" data-a="s7day" data-v="-1">Volver un día</button><button class="pill f" data-a="s7ex">Ver el ejemplo cargado</button><button class="pill f" data-a="s7reset">Reiniciar “7 días” (vacío)</button></div></div>`;
  return h}
 
 /* ---- acciones del desafío ---- */
@@ -1223,8 +1238,10 @@ Object.assign(clickMap,{
  s7start(e,el){start(el.dataset.v)},
  s7mark(){mark()},
  s7leave(){if(ST.ch&&confirm('¿Querés cambiar de desafío? Se pierde el avance de este.')){ST.ch=null;save7();draw()}},
+ s7own(){if(confirm('Se borra el ejemplo y empezás desde cero con tu propio desafío. ¿Seguimos?')){ST=empty();save7();UI.tab='des';draw()}},
+ s7ex(){if(confirm('Volver a cargar el ejemplo reemplaza lo que tenés en esta sección. ¿Seguimos?')){ST=example();save7();UI.tab='des';draw()}},
  s7day(e,el){ST.off+=+el.dataset.v;save7();draw()},
- s7reset(){if(confirm('¿Reiniciar “7 días para cambiar”? Se borran desafío, recompensas e historial de esta sección.')){ST={v:1,ch:null,hist:[],rew:[],off:0};save7();UI.tab='des';draw()}},
+ s7reset(){if(confirm('¿Reiniciar “7 días para cambiar”? Se borran desafío, recompensas e historial de esta sección.')){ST=empty();save7();UI.tab='des';draw()}},
  s7rew(){closeCel();UI.tab='rew';if(V.tab!=='siete')go('siete');else draw()},
  s7find(){const b=ST.rew.length?ST.rew[ST.rew.length-1].bid:null;openMap(b);UI.st='unl';draw()},
  s7close(){closeCel()},
