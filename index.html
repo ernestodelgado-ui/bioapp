@@ -376,6 +376,12 @@ nav button{width:auto;flex:1;max-width:62px}nav button.on{width:auto;flex:1.35;m
 .ex7 p{margin:0 0 8px;font-size:14px;line-height:1.35}.ex7 ol{margin:0 0 12px;padding-left:20px;font-size:14px;line-height:1.4}.ex7 li{margin-bottom:3px}
 .cel7 .ce7{display:block;font-weight:800;letter-spacing:1.4px;font-size:12px;color:var(--aire);margin-bottom:8px}
 .cel7 .ce7b{display:inline-block;background:var(--corazon);color:#fff;font-weight:900;font-size:17px;padding:8px 16px;border-radius:22px;margin:2px 0 8px}
+.s7h{margin:6px 0 20px}.s7h h1{margin:4px 0 10px;line-height:1}.s7h p{line-height:1.45}
+.s7seg{margin:0 0 20px;padding:6px;gap:6px}.s7seg button{padding:13px 6px;font-size:13px}
+.ex7{padding:18px;margin:0 0 22px}.ex7t{margin-bottom:10px}.ex7 p{margin:0 0 14px;line-height:1.5}.ex7 ol{margin:0 0 18px;line-height:1.5}.ex7 li{margin-bottom:10px}.ex7 .btn{margin-top:0}.ex7 .btn+.btn{margin-top:10px}
+.s7p{margin:8px 0 18px}.ch7{padding:18px 16px 18px 18px;margin-bottom:18px}.ch7 p{margin:8px 0 14px;line-height:1.5}.s7tags{margin-bottom:16px}
+.mods{margin:20px 0 12px}.s7day{margin:8px 0 14px}.s7tip{margin-bottom:16px;padding:12px 14px}.s7dates{margin-top:16px}
+.s7h2{margin:34px 0 14px}.hst{padding:16px 0}.s7dev{margin-top:34px}
 </style>
 </head>
 <body>
@@ -1103,7 +1109,7 @@ function exBanner(){if(!ST.demo)return'';
  return`<div class="ex7"><div class="ex7t"><span class="tag">EJEMPLO</span><b>Así se ve usada esta sección</b></div>
  <p>${!ST.ch?'Completaste el desafío de ejemplo. Mirá <b>Mis recompensas</b> y el <b>Mapa de beneficios</b> para ver dónde usar tus descuentos.':ST.ch.marks.length>=6?'Ya hay un desafío con 6 de 7 días hechos y recompensas de uno anterior. <b>Tocá «Cumplí mi desafío de hoy»</b> para completar el día 7 y ver qué pasa.':'Este desafío de ejemplo está en curso. Marcá los días que faltan hasta llegar a 7 y se activan los descuentos.'}</p>
  <ol><li><b>Mi desafío:</b> marcá cada día lo que hiciste.</li><li><b>Mis recompensas:</b> al completar 7 días se desbloquean descuentos.</li><li><b>Ver en el mapa:</b> tocá ese botón en una recompensa y te llevamos al comercio.</li></ol>
- <button class="btn sm" style="background:var(--corazon);color:#fff" data-a="s7own">Empezar el mío</button></div>`}
+ ${!ST.ch?'<button class="btn" style="background:var(--corazon);color:#fff" data-a="s7ex2">Probar el ejemplo de nuevo</button><button class="btn out sm" data-a="s7own">Empezar el mío</button>':'<button class="btn" style="background:var(--corazon);color:#fff" data-a="s7own">Empezar el mío</button>'}</div>`}
 /* ---- MI DESAFÍO ---- */
 function mods(n,col,done){return`<div class="mods ${done?'done':''}" style="--c:${col};--cf:${fgOn(col)}">${[...Array(7)].map((_,i)=>`<i class="m ${i<n?'on':''} ${i===n&&!done?'next':''}" style="border-radius:${SHP[i]}">${i<n?CK:i+1}</i>`).join('')}</div>`}
 function dDes(){const c=ST.ch;
@@ -1240,6 +1246,7 @@ Object.assign(clickMap,{
  s7start(e,el){start(el.dataset.v)},
  s7mark(){mark()},
  s7leave(){if(ST.ch&&confirm('¿Querés cambiar de desafío? Se pierde el avance de este.')){ST.ch=null;save7();draw()}},
+ s7ex2(){ST=example();save7();UI.tab='des';draw();document.getElementById('mn').scrollTop=0},
  s7own(){if(confirm('Se borra el ejemplo y empezás desde cero con tu propio desafío. ¿Seguimos?')){ST=empty();save7();UI.tab='des';draw()}},
  s7ex(){if(confirm('Volver a cargar el ejemplo reemplaza lo que tenés en esta sección. ¿Seguimos?')){ST=example();save7();UI.tab='des';draw()}},
  s7day(e,el){ST.off+=+el.dataset.v;save7();draw()},
