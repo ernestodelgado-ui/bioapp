@@ -364,7 +364,7 @@ nav button{width:auto;flex:1;max-width:62px}nav button.on{width:auto;flex:1.35;m
 .b7 .pin7{flex:none}.b7>div{flex:1;min-width:0}.b7 b{display:block;font-size:17px;letter-spacing:-.3px;line-height:1.15}.b7 span{display:block;font-size:13px;color:var(--mut);margin-top:2px}.b7 em{display:block;font-style:normal;font-weight:700;font-size:14px;margin-top:4px}.b7>.tag{flex:none;font-size:11px;padding:4px 8px}
 .leaflet-container{font-family:inherit}
 .cel7{position:absolute;inset:0;z-index:70;background:#0D0D12;color:#fff;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;transition:opacity .4s}
-.cel7.go{opacity:1}.cel7 .cin{position:relative;z-index:2;width:100%;max-width:360px}.cel7 .cmods{margin-bottom:18px}
+.cel7{overflow-x:hidden}.cel7.go{opacity:1}.cel7 .cin{position:relative;z-index:2;width:100%;max-width:360px}.cel7 .cmods{margin-bottom:18px}
 .cel7 .mods .m{max-width:40px;font-size:13px}
 .cel7 h2{font-size:34px;line-height:1;letter-spacing:-1.6px;margin:0 0 10px;color:#fff}.cel7 p{font-size:18px;line-height:1.35;color:#d8d8e2;margin:0 0 10px}.cel7 small{display:block;color:#a9a9b8;margin-bottom:18px}
 .cel7 .btn{margin-bottom:10px}.cel7 .skip{display:inline-block;margin-top:6px;color:#a9a9b8;text-decoration:underline;font-size:15px}
@@ -374,6 +374,8 @@ nav button{width:auto;flex:1;max-width:62px}nav button.on{width:auto;flex:1.35;m
 .ex7{background:#FFF1C9;border-radius:20px;padding:14px;margin:0 0 14px}
 .ex7t{display:flex;gap:8px;align-items:center;margin-bottom:6px}.ex7t .tag{background:#0D0D12;color:#fff;font-size:11px;padding:3px 8px}.ex7t b{font-size:17px;letter-spacing:-.4px}
 .ex7 p{margin:0 0 8px;font-size:14px;line-height:1.35}.ex7 ol{margin:0 0 12px;padding-left:20px;font-size:14px;line-height:1.4}.ex7 li{margin-bottom:3px}
+.cel7 .ce7{display:block;font-weight:800;letter-spacing:1.4px;font-size:12px;color:var(--aire);margin-bottom:8px}
+.cel7 .ce7b{display:inline-block;background:var(--corazon);color:#fff;font-weight:900;font-size:17px;padding:8px 16px;border-radius:22px;margin:2px 0 8px}
 </style>
 </head>
 <body>
@@ -1062,7 +1064,7 @@ SEC.siete=['--corazon','#fff'];
 const empty=()=>({v:1,ch:null,hist:[],rew:[],off:0});
 function example(){const f=n=>{const d=new Date(Date.now()-n*864e5);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
  return{v:1,demo:true,off:0,
-  ch:{id:'d3',start:f(4),marks:[f(4),f(3),f(2),f(1)]},
+  ch:{id:'d3',start:f(6),marks:[f(6),f(5),f(4),f(3),f(2),f(1)]},
   hist:[{id:'hx1',cid:'d4',start:f(21),end:f(14),marks:[f(21),f(20),f(19),f(18),f(17),f(16),f(15)],rew:['b1','b2','b3']}],
   rew:[{bid:'b1',cid:'d4',ts:f(14),code:'DEMO-EJEM-0001'},{bid:'b2',cid:'d4',ts:f(14),code:'DEMO-EJEM-0002'},{bid:'b3',cid:'d4',ts:f(14),code:'DEMO-EJEM-0003'}]}}
 function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return example()}
@@ -1099,7 +1101,7 @@ const _render=render;render=function(){_render();if(V.tab==='siete')draw()};
 /* ---- aviso de ejemplo ---- */
 function exBanner(){if(!ST.demo)return'';
  return`<div class="ex7"><div class="ex7t"><span class="tag">EJEMPLO</span><b>Así se ve usada esta sección</b></div>
- <p>Ya hay un desafío a mitad de camino y recompensas de un desafío anterior, para que veas cómo funciona.</p>
+ <p>${ST.ch&&ST.ch.marks.length>=6?'Ya hay un desafío con 6 de 7 días hechos y recompensas de uno anterior. <b>Tocá «Cumplí mi desafío de hoy»</b> para completar el día 7 y ver qué pasa.':'Completaste el desafío de ejemplo. Mirá <b>Mis recompensas</b> y el <b>Mapa de beneficios</b> para ver dónde usar tus descuentos.'}</p>
  <ol><li><b>Mi desafío:</b> marcá cada día lo que hiciste.</li><li><b>Mis recompensas:</b> al completar 7 días se desbloquean descuentos.</li><li><b>Ver en el mapa:</b> tocá ese botón en una recompensa y te llevamos al comercio.</li></ol>
  <button class="btn sm" style="background:var(--corazon);color:#fff" data-a="s7own">Empezar el mío</button></div>`}
 /* ---- MI DESAFÍO ---- */
@@ -1145,8 +1147,8 @@ function celebrate(d,nNew,nAll){const old=document.getElementById('cel7');if(old
  let cf='';for(let i=0;i<26;i++){const s=8+Math.random()*16;cf+=`<i class="cf7" style="left:${Math.random()*100}%;width:${s}px;height:${s*(.6+Math.random()*.6)}px;background:${cs[i%5]};border-radius:${SHP[i%7]};animation-duration:${3.5+Math.random()*3}s;animation-delay:${Math.random()*1.4}s"></i>`}
  const el=document.createElement('div');el.id='cel7';el.className='cel7';
  el.innerHTML=cf+`<div class="cin"><div class="cmods">${mods(7,col,true).replace('class="mods ','class="mods cel ')}</div>
- <h2>¡Lo hiciste! 7 días activando el cambio</h2><p>Tu compromiso tiene recompensa. Descubrí dónde podés aprovecharla.</p>
- <small>${nNew?`Desbloqueaste ${nNew} beneficio${nNew===1?'':'s'} (de ejemplo).`:'Ya tenías estos beneficios desbloqueados.'}</small>
+ <span class="ce7">CUMPLISTE EL DESAFÍO · ${esc(d.t.toUpperCase())}</span><h2>¡Lo hiciste! 7 días activando el cambio</h2><p>Tu compromiso tiene recompensa. Descubrí dónde podés aprovecharla.</p>
+ <div class="ce7b">${nNew?`Activaste ${nNew} descuento${nNew===1?'':'s'}`:'Ya tenías estos descuentos activados'}</div><small>Los descuentos de esta demostración son de ejemplo.</small>
  <button class="btn" data-a="s7rew" style="background:var(--corazon);color:#fff">Ver mi recompensa</button><button class="btn out" data-a="s7find" style="color:#fff;border-color:#fff;background:transparent">Encontrar en el mapa</button><a class="skip" data-a="s7close">Seguir</a></div>`;
  $('#app').appendChild(el);requestAnimationFrame(()=>el.classList.add('go'))}
 const closeCel=()=>{const e=document.getElementById('cel7');if(e)e.remove()};
