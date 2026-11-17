@@ -1063,11 +1063,11 @@ SEC.siete=['--corazon','#fff'];
 /* ---- estado guardado en el navegador (solo demostración) ---- */
 const empty=()=>({v:1,ch:null,hist:[],rew:[],off:0});
 function example(){const f=n=>{const d=new Date(Date.now()-n*864e5);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
- return{v:1,demo:true,off:0,
+ return{v:1,demo:true,ex:2,off:0,
   ch:{id:'d3',start:f(6),marks:[f(6),f(5),f(4),f(3),f(2),f(1)]},
   hist:[{id:'hx1',cid:'d4',start:f(21),end:f(14),marks:[f(21),f(20),f(19),f(18),f(17),f(16),f(15)],rew:['b1','b2','b3']}],
   rew:[{bid:'b1',cid:'d4',ts:f(14),code:'DEMO-EJEM-0001'},{bid:'b2',cid:'d4',ts:f(14),code:'DEMO-EJEM-0002'},{bid:'b3',cid:'d4',ts:f(14),code:'DEMO-EJEM-0003'}]}}
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return example()}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1){if(s.demo&&s.ex!==2)return example();return s}}catch(e){}return example()}
 let ST=load();
 const save7=()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}};
 const UI={tab:'des',q:'',cat:'all',st:'all',focus:null,user:null};
@@ -1101,7 +1101,7 @@ const _render=render;render=function(){_render();if(V.tab==='siete')draw()};
 /* ---- aviso de ejemplo ---- */
 function exBanner(){if(!ST.demo)return'';
  return`<div class="ex7"><div class="ex7t"><span class="tag">EJEMPLO</span><b>Así se ve usada esta sección</b></div>
- <p>${ST.ch&&ST.ch.marks.length>=6?'Ya hay un desafío con 6 de 7 días hechos y recompensas de uno anterior. <b>Tocá «Cumplí mi desafío de hoy»</b> para completar el día 7 y ver qué pasa.':'Completaste el desafío de ejemplo. Mirá <b>Mis recompensas</b> y el <b>Mapa de beneficios</b> para ver dónde usar tus descuentos.'}</p>
+ <p>${!ST.ch?'Completaste el desafío de ejemplo. Mirá <b>Mis recompensas</b> y el <b>Mapa de beneficios</b> para ver dónde usar tus descuentos.':ST.ch.marks.length>=6?'Ya hay un desafío con 6 de 7 días hechos y recompensas de uno anterior. <b>Tocá «Cumplí mi desafío de hoy»</b> para completar el día 7 y ver qué pasa.':'Este desafío de ejemplo está en curso. Marcá los días que faltan hasta llegar a 7 y se activan los descuentos.'}</p>
  <ol><li><b>Mi desafío:</b> marcá cada día lo que hiciste.</li><li><b>Mis recompensas:</b> al completar 7 días se desbloquean descuentos.</li><li><b>Ver en el mapa:</b> tocá ese botón en una recompensa y te llevamos al comercio.</li></ol>
  <button class="btn sm" style="background:var(--corazon);color:#fff" data-a="s7own">Empezar el mío</button></div>`}
 /* ---- MI DESAFÍO ---- */
